@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #060d14;
+      color: #e6f4f8;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background: #08121c;
+      border-right: 1px solid rgba(0, 229, 255, 0.16);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .brand {
+      color: #00e5ff;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 15px;
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+    }
+    .cat {
+      font-size: 11px;
+      color: #6b8796;
+      letter-spacing: 1px;
+      padding: 6px 8px 2px;
+    }
+    .item {
+      padding: 9px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #cfe4ec;
+      cursor: pointer;
+    }
+    .item:hover, .item.active {
+      background: rgba(0, 229, 255, 0.12);
+      color: #00e5ff;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: #091521;
+      border: 1px solid rgba(0, 229, 255, 0.25);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 0 35px rgba(0, 229, 255, 0.08);
+    }
+    h1 {
+      font-size: 24px;
+      color: #00e5ff;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 11px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .yes { background: #00e5ff; color: #051018; }
+    .no { background: #142636; color: #cfe4ec; border: 1px solid rgba(0,229,255,0.2); }
+    .status {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: 900;
+      color: #ff3b5c;
+      letter-spacing: 1px;
+      display: none;
+    }
+    @media (max-width: 640px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(0,229,255,0.16); }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">PANEL // v2.4</div>
+    <div class="cat">SİSTEM MODÜLLERİ</div>
+    <div class="item active">RAT Modülü</div>
+    <div class="item">Bağlantı Durumu</div>
+    <div class="cat">ARAÇLAR</div>
+    <div class="item">Paket Gönderici</div>
+    <div class="item">Log Kayıtları</div>
+  </aside>
+
+  <main class="main">
+    <div class="card">
+      <h1>RAT GÖNDERİLSİN Mİ ?</h1>
+      <div class="btns">
+        <button class="yes" onclick="gonder()">EVET</button>
+        <button class="no" onclick="gonder()">HAYIR</button>
+      </div>
+      <div class="status" id="sonuc">RAT GÖNDERİLDİ !</div>
+    </div>
+  </main>
+
+  <script>
+    function gonder() {
+      const el = document.getElementById("sonuc");
+      el.style.display = "block";
+    }
+  </script>
+</body>
+</html>
